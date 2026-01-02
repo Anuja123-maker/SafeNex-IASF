@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Safenex</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-header">
+    <header>
+        <img src="assets/logo.png" alt="Safenex Logo" class="logo">
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="patient.html">Patients</a>
+            <a href="caretaker.html">Caretakers</a>
+            <a href="map.html">Map</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h1>Safenex Dashboard</h1>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Total Patients</h3>
+                    <p id="totalPatients">0</p>
+                </div>
+                <div class="card">
+                    <h3>Active Alerts</h3>
+                    <p id="activeAlerts">0</p>
+                </div>
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <ul id="recentActivity">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="quick-actions">
+                <a href="patient.html" class="btn">Add New Patient</a>
+                <a href="map.html" class="btn">View Map</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

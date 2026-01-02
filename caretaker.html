@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caretaker Details - Safenex</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-header">
+    <header>
+        <img src="assets/logo.png" alt="Safenex Logo" class="logo">
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="patient.html">Patients</a>
+            <a href="caretaker.html">Caretakers</a>
+            <a href="map.html">Map</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="caretaker-form">
+            <h1>Caretaker Management</h1>
+            <form id="caretakerForm">
+                <input type="text" id="cName" placeholder="Full Name" autocomplete="name" required>
+                <input type="email" id="cEmail" placeholder="Email" autocomplete="email" required>
+                <input type="tel" id="cPhone" placeholder="Phone Number" autocomplete="tel" required>
+                <input type="text" id="cRelation" placeholder="Relationship to Patient" required>
+                <button type="submit">Save Caretaker</button>
+            </form>
+        </section>
+
+        <section class="caretaker-list">
+            <h2>Caretakers</h2>
+            <div id="caretakerList"></div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/caretaker.js"></script>
+</body>
+</html>

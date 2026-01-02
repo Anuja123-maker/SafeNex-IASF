@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safenex - Alzheimer's Patient Safety Monitoring</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #800080;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 240px; /* doubled size */
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .motto {
+            font-size: 1.2rem;
+            color: #800080;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #088395;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #071952;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #800080;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .logo {
+                width: 160px; /* smaller on phones */
+            }
+
+            .motto {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- Logo above buttons -->
+        <img src="assets/logo.png" alt="Safenex Logo" class="logo">
+        <p class="motto">Ensuring Safety for Alzheimer's Patients</p>
+
+        <a href="register.html" class="btn">Get Started</a>
+        <a href="login.html" class="btn">Login</a>
+    </main>
+
+</body>
+</html>

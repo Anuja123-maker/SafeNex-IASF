@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Safenex</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <img src="assets/logo.png" alt="Safenex Logo" class="logo">
+
+    <h2>Login to Safenex</h2>
+
+    <input type="email" id="loginEmail" placeholder="Enter Email" autocomplete="email">
+    <input type="password" id="loginPass" placeholder="Enter Password" autocomplete="current-password">
+
+    <button onclick="loginUser()">Login</button>
+
+    <a href="register.html">Don't have an account? Register</a>
+</div>
+
+<!-- Firebase SDKs (COMPAT versions – REQUIRED for your code) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<!-- Firebase init MUST come first -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Auth logic AFTER firebase -->
+<script src="js/auth.js"></script>
+
+</body>
+</html>

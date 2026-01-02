@@ -1,0 +1,37 @@
+# Example GPS payload (JSON)
+{
+  "device_id": "device_001",
+  "lat": 37.7749,
+  "lon": -122.4194,
+  "timestamp": "2023-12-20T10:00:00Z",
+  "accuracy": 5.0
+}
+
+# Example geofence configuration (JSON)
+{
+  "id": "home_zone",
+  "name": "Home Zone",
+  "type": "circular",
+  "circular": {
+    "center": {
+      "lat": 37.7749,
+      "lon": -122.4194
+    },
+    "radius": 500
+  }
+}
+
+# Example polygon geofence
+{
+  "id": "park_zone",
+  "name": "Park Zone",
+  "type": "polygon",
+  "polygon": {
+    "vertices": [
+      {"lat": 37.7749, "lon": -122.4194},
+      {"lat": 37.7750, "lon": -122.4195},
+      {"lat": 37.7751, "lon": -122.4193},
+      {"lat": 37.7748, "lon": -122.4193}
+    ]
+  }
+}

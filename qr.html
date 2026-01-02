@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code - Safenex</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-header">
+    <header>
+        <img src="assets/logo.png" alt="Safenex Logo" class="logo">
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="patient.html">Patients</a>
+            <a href="caretaker.html">Caretakers</a>
+            <a href="map.html">Map</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="qr-section">
+            <h1>Emergency QR Code</h1>
+            <p class="qr-instructions">Generate and download the QR code to attach to the patient's device. When scanned, it will display emergency contact information.</p>
+            <select id="patientSelect">
+                <option value="">Select Patient</option>
+            </select>
+            <button onclick="generateQR()">Generate QR</button>
+            <div id="qrBox"></div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/qr.js"></script>
+</body>
+</html>
