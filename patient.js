@@ -66,11 +66,15 @@ function savePatient(e, caretakerId) {
                 const existingByDevice = deviceId ? list.querySelector(`[data-device="${deviceId}"]`) : null;
                 const existingById = list.querySelector(`[data-id="${docRef.id}"]`);
 
+                // Create QR URL that points to the public view page
+                const qrUrlForThis = `${window.location.origin}/patient-public.html?patientId=${docRef.id}`;
+                const smallQrSrcForThis = `https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${encodeURIComponent(qrUrlForThis)}`;
+
                 if (existingById) {
                     existingById.innerHTML = `
                         <div class="patient-header">
                             <h3>${name}</h3>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${encodeURIComponent(`${window.location.origin}/qr.html?patientId=${docRef.id}`)}" alt="QR Code" class="patient-qr-preview" onclick="openFullQR('${docRef.id}', '${name}')">
+                            <img src="${smallQrSrcForThis}" alt="QR Code" class="patient-qr-preview" onclick="openFullQR('${docRef.id}', '${name}')">
                         </div>
                         <p><strong>Age:</strong> ${age}</p>
                         <p><strong>Condition:</strong> ${condition}</p>
@@ -85,7 +89,7 @@ function savePatient(e, caretakerId) {
                     existingByDevice.innerHTML = `
                         <div class="patient-header">
                             <h3>${name}</h3>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${encodeURIComponent(`${window.location.origin}/qr.html?patientId=${docRef.id}`)}" alt="QR Code" class="patient-qr-preview" onclick="openFullQR('${docRef.id}', '${name}')">
+                            <img src="${smallQrSrcForThis}" alt="QR Code" class="patient-qr-preview" onclick="openFullQR('${docRef.id}', '${name}')">
                         </div>
                         <p><strong>Age:</strong> ${age}</p>
                         <p><strong>Condition:</strong> ${condition}</p>
@@ -102,7 +106,7 @@ function savePatient(e, caretakerId) {
                     div.innerHTML = `
                         <div class="patient-header">
                             <h3>${name}</h3>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${encodeURIComponent(`${window.location.origin}/qr.html?patientId=${docRef.id}`)}" alt="QR Code" class="patient-qr-preview" onclick="openFullQR('${docRef.id}', '${name}')">
+                            <img src="${smallQrSrcForThis}" alt="QR Code" class="patient-qr-preview" onclick="openFullQR('${docRef.id}', '${name}')">
                         </div>
                         <p><strong>Age:</strong> ${age}</p>
                         <p><strong>Condition:</strong> ${condition}</p>
@@ -168,7 +172,8 @@ function loadPatients(caretakerId) {
                     div.className = "patient-card";
                     div.dataset.id = id;
                     div.dataset.device = device;
-                    const qrUrl = `${window.location.origin}/qr.html?patientId=${id}`;
+                    // Link QR to the public patient view
+                    const qrUrl = `${window.location.origin}/patient-public.html?patientId=${id}`;
                     const smallQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${encodeURIComponent(qrUrl)}`;
                     div.innerHTML = `
                         <div class="patient-header">
@@ -197,14 +202,15 @@ function loadPatients(caretakerId) {
 // Generate QR for Patient
 // -------------------------------
 function generatePatientQR(patientId) {
-    window.location.href = `qr.html?patientId=${patientId}`;
+    window.location.href = `qr.html?patientId=${patientId}`; // keep the QR preview page if you want printing flow
 }
 
 // -------------------------------
 // Open Full QR for Printing
 // -------------------------------
 function openFullQR(patientId, patientName) {
-    const qrUrl = `${window.location.origin}/qr.html?patientId=${patientId}`;
+    // create a large QR that points to public view which mobile scanners can open
+    const qrUrl = `${window.location.origin}/patient-public.html?patientId=${patientId}`;
     const largeQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(qrUrl)}`;
     
     // Open in new window for printing
@@ -231,7 +237,7 @@ function openFullQR(patientId, patientName) {
         </head>
         <body>
             <h2>Emergency QR Code for ${patientName}</h2>
-            <p>Print this QR code and attach it to the patient's device.</p>
+            <p>Scan this QR from a mobile device to open patient details.</p>
             <img src="${largeQrSrc}" alt="QR Code for ${patientName}">
             <br>
             <button class="print-btn" onclick="window.print()">Print QR Code</button>
@@ -258,5 +264,3 @@ function deletePatient(id) {
             alert(error.message);
         });
 }
-
-
